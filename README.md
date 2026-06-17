@@ -15,6 +15,52 @@ native habitats*
 
 ---
 
+## Abstract
+
+*Flora of the World* was founded by the late Dr. Christopher Davidson (1944–2022),
+an Idaho-born botanist and advocate for plant exploration and conservation. Over
+more than 25 years, Dr. Davidson and his wife, Sharon Christoph, traveled to 45
+countries to document flowering plants *in situ* and support botanical research
+and conservation worldwide. The project combines high-resolution digital imagery
+with field-collected specimens to document flowering plant families worldwide,
+with a special focus on global biodiversity hotspots and botanical garden
+inventories, capturing morphological, ecological, and geographic context. What
+makes *Flora of the World* singular is the depth of its visual documentation:
+each georeferenced occurrence is represented by an average of **12 detailed
+photographs** capturing diagnostic features, habitat context, and morphological
+variation — a standard that serves taxonomists, ecologists, conservation
+biologists, and educators alike. In 2024, the **Dr. Christopher Davidson
+Endowed Chair in Botany** was established at Boise State University (Idaho,
+USA), creating a lasting institutional home for this mission, with Associate
+Professor Sven Buerki as inaugural chair.
+
+To make this legacy openly accessible, *Flora of the World* has been
+implemented as a searchable online platform
+([floraoftheworld.org](https://floraoftheworld.org/)), hosting **232,414
+images** spanning **482 families**, **4,526 genera**, and **more than 6,000
+species**, underpinned by **nearly 20,000 georeferenced occurrence records**.
+The platform provides individual collector profiles linked to occurrences and
+publications, a database of research incorporating *Flora of the World* data,
+and institutional webpages dedicated to partner herbaria, gardens, and research
+organizations — making invisible labor visible and fostering reciprocal
+collaboration.
+
+*Flora of the World* also participates in the **World Flora Online** project,
+advancing **Target 1 of the Global Strategy for Plant Conservation**. Through
+this partnership, its openly shared images, specimens, and metadata directly
+strengthen this global endeavor.
+
+Rooted in decades of field exploration and now anchored at Boise State
+University, *Flora of the World* demonstrates that community-built botanical
+infrastructure can become a living digital resource serving science,
+education, and conservation worldwide. We warmly welcome collaborations and
+contributions from the global botanical community to carry forward the
+extraordinary mission Dr. Davidson began — and to ensure the world's
+flowering plants, documented in their native habitats, remain a shared
+heritage for generations to come.
+
+---
+
 ## Deliverables
 
 | File | Format | Notes |
