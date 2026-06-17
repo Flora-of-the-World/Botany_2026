@@ -617,12 +617,19 @@ CTA_H = 2.40
 add_rect(0, CTA_TOP, 48, CTA_H, GREEN_DARK)
 add_rect(0, CTA_TOP, 48, 0.08, GOLD)
 
-# Two logical zones: Partnerships (left half) + Institutional Home (right half).
-# QR code moved to the header; no Join Us column needed here.
+# Three logical zones: Partnerships (left ~50%) + Institutional Home (~25%)
+# + Acknowledgements (~25%). QR is in the header.
 panel_h = CTA_H - 0.40
-p_w = (48 - 2*0.9 - 0.6) / 2   # half of usable width
+usable_w  = 48 - 2 * 0.9
+zone_gap  = 0.50
+pa_w = (usable_w - 2 * zone_gap) * 0.50    # ~22.6
+right_w = (usable_w - 2 * zone_gap - pa_w)  # remaining width split in two
+pb_w = right_w / 2                          # ~11.3
+pc_w = right_w / 2
 pa_l = 0.9
-pb_l = pa_l + p_w + 0.6
+pb_l = pa_l + pa_w + zone_gap
+pc_l = pb_l + pb_w + zone_gap
+p_w  = pa_w                                  # legacy alias used by Partnerships
 
 # --- ZONE A: PARTNERS — WFO + EDGE logos closer together (top), then text
 add_text(pa_l, CTA_TOP + 0.15, p_w, 0.40,
@@ -672,29 +679,57 @@ add_paragraphs(
     font=SERIF, line_spacing=1.22,
 )
 
-# --- ZONE B: INSTITUTIONAL HOME (BSU + Endowed Chair) ----------
-add_text(pb_l, CTA_TOP + 0.15, p_w, 0.40,
+# --- ZONE B: INSTITUTIONAL HOME (BSU + Endowed Chair) — narrower column ---
+add_text(pb_l, CTA_TOP + 0.15, pb_w, 0.40,
          "INSTITUTIONAL HOME",
          font=SANS, size=14, bold=True, color=GOLD, letter_spacing=6)
 b_card_h = part_card_h
-bsu_logo_h = b_card_h - 0.20
+# BSU logo sits on a small white card on the left of the column;
+# Endowed-Chair text fills the rest of the column to its right.
+bsu_logo_h = min(b_card_h - 0.20, 0.90)
 bsu_logo_w = bsu_logo_h * (492 / 176)
-bsu_card_x = pb_l
 bsu_card_w = bsu_logo_w + 0.4
-add_rect(bsu_card_x, part_card_y, bsu_card_w, b_card_h, WHITE)
+add_rect(pb_l, part_card_y, bsu_card_w, b_card_h, WHITE)
 slide.shapes.add_picture(F("bsu_logo_trim.png"),
-                         Inches(bsu_card_x + 0.20),
+                         Inches(pb_l + 0.20),
                          Inches(part_card_y + (b_card_h - bsu_logo_h)/2),
                          Inches(bsu_logo_w), Inches(bsu_logo_h))
-bt_l = bsu_card_x + bsu_card_w + 0.30
-bt_w = p_w - (bt_l - pb_l)
-add_text(bt_l, part_card_y + 0.00, bt_w, 0.55,
+bt_l = pb_l + bsu_card_w + 0.20
+bt_w = pb_w - (bt_l - pb_l)
+add_text(bt_l, part_card_y + 0.05, bt_w, 0.65,
          "Dr. Christopher Davidson Endowed Chair in Botany",
-         font=SERIF, size=18, bold=True, color=WHITE, line_spacing=1.10)
-add_text(bt_l, part_card_y + 0.60, bt_w, b_card_h - 0.65,
-         "Established in 2024 at Boise State University, with "
+         font=SERIF, size=14, bold=True, color=WHITE, line_spacing=1.12)
+add_text(bt_l, part_card_y + 0.75, bt_w, b_card_h - 0.80,
+         "Established in 2024 at Boise State University with "
          "Associate Professor Sven Buerki as inaugural chair.",
-         font=SERIF, size=13, italic=True, color=GOLD_SOFT, line_spacing=1.20)
+         font=SERIF, size=11, italic=True, color=GOLD_SOFT, line_spacing=1.20)
+
+# --- ZONE C: ACKNOWLEDGEMENTS ----------
+add_text(pc_l, CTA_TOP + 0.15, pc_w, 0.40,
+         "ACKNOWLEDGEMENTS",
+         font=SANS, size=14, bold=True, color=GOLD, letter_spacing=6)
+add_rect(pc_l, part_card_y, pc_w, part_card_h, WHITE)
+add_paragraphs(
+    pc_l + 0.20, part_card_y + 0.10, pc_w - 0.40, part_card_h - 0.20,
+    [
+        ("", {"runs": [
+            ("We gratefully thank the many botanists who have supported "
+             "this project, in particular our colleagues at the ", {}),
+            ("Missouri Botanical Garden", {"bold": True}),
+            (", the ", {}),
+            ("Conservatoire et Jardin botaniques de Genève", {"bold": True}),
+            (", and the ", {}),
+            ("Royal Botanic Gardens, Kew", {"bold": True}),
+            (".", {}),
+        ], "size": 11, "color": INK, "space_after": 4}),
+        ("", {"runs": [
+            ("Full list at ", {}),
+            ("floraoftheworld.org/acknowledgements",
+             {"bold": True, "color": GREEN_DARK}),
+        ], "size": 10, "italic": True, "color": INK_SOFT, "space_after": 0}),
+    ],
+    font=SERIF, line_spacing=1.20,
+)
 
 # ============================================================ FOOTER
 FT_TOP = CTA_TOP + CTA_H + 0.20
