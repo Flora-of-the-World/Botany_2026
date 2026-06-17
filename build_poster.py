@@ -690,7 +690,7 @@ add_line(0, FT_TOP, 48, FT_TOP, color=GOLD, weight=2)
 
 # References — compact font + tighter line spacing so all four lines fit
 ref_l = 0.9
-ref_w = 33.0
+ref_w = 27.0
 add_text(ref_l, FT_TOP + 0.10, ref_w, 0.35,
          "REFERENCES", font=SANS, size=13, bold=True,
          color=GREEN_DARK, letter_spacing=6)
@@ -722,8 +722,29 @@ ref_blocks = [
 add_paragraphs(ref_l, FT_TOP + 0.55, ref_w, max(FT_H - 0.60, 0.10),
                ref_blocks, font=SERIF, line_spacing=1.12)
 
+# --- DOWNLOAD THIS POSTER (centre of footer): label on top, QR + URL beside ---
+dl_l = 28.5
+dl_w = 5.8
+add_text(dl_l, FT_TOP + 0.10, dl_w, 0.30,
+         "DOWNLOAD THIS POSTER",
+         font=SANS, size=12, bold=True, color=GREEN_DARK,
+         letter_spacing=4, align=PP_ALIGN.CENTER)
+# QR sits below the label on the left; URL text sits to its right
+qr_size_dl = 1.12
+qr_top_dl  = FT_TOP + 0.45
+qr_l_dl    = dl_l + 0.10
+slide.shapes.add_picture(F("qr_github.png"),
+                         Inches(qr_l_dl), Inches(qr_top_dl),
+                         Inches(qr_size_dl), Inches(qr_size_dl))
+add_text(qr_l_dl + qr_size_dl + 0.20,
+         qr_top_dl + qr_size_dl / 2 - 0.15,
+         dl_w - qr_size_dl - 0.30, 0.30,
+         "github.com/Flora-of-the-World/Botany_2026",
+         font=SANS, size=10, italic=True, color=INK_SOFT,
+         align=PP_ALIGN.LEFT)
+
 # Contact (right) — compact for the 1.4" footer
-ct_l = 35.0
+ct_l = 35.5
 ct_w = 47.0 - ct_l
 add_text(ct_l, FT_TOP + 0.15, ct_w, 0.35,
          "CONTACT", font=SANS, size=13, bold=True,

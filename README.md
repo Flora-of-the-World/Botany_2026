@@ -1,6 +1,6 @@
 # Flora of the World — Botany 2026 Poster
 
-Poster presented at **Botany 2026** introducing
+Poster presented at **[Botany 2026](https://2026.botanyconference.org/)** introducing
 [**Flora of the World**](https://floraoftheworld.org/) — an online platform
 documenting flowering plants in their native habitats.
 
@@ -10,6 +10,8 @@ native habitats*
 **Authors:** Sven Buerki¹², Kenny Williams¹, Jim Beck², Sharon R. Christoph¹
 &nbsp;&nbsp;&nbsp;¹ Flora of the World Foundation &nbsp;·&nbsp;
 ² Boise State University, Idaho, USA
+
+![Botany 2026 poster preview](Flora_of_the_World_Botany2026_Poster.png)
 
 ---
 
@@ -61,4 +63,6 @@ Full publication list at <https://floraoftheworld.org/publications>.
 
 ## License
 
-CC BY 4.0 — free to share and adapt with attribution.
+Released under the **Creative Commons Attribution 4.0 International (CC BY 4.0)**
+license — see [LICENSE](LICENSE). Free to share and adapt with attribution to
+the authors above.
