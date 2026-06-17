@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Build helpers
+figures/*_fit.png
+figures/*_fit.jpg
+figures/*_fit.jpeg
+
+# Editor temp
+*.swp
+*~
