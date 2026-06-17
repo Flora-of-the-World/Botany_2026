@@ -15,3 +15,6 @@ figures/*_fit.jpeg
 # Editor temp
 *.swp
 *~
+
+# Office lock files
+~$*
