@@ -225,12 +225,12 @@ add_text(title_left, 3.50, title_w + 5, 0.50,
          "¹ Flora of the World Foundation     ² Boise State University, Idaho, USA",
          font=SANS, size=13, italic=True, color=GOLD_SOFT)
 
-# Botany 2026 conference logo — slightly smaller and shifted right so the
-# bigger title text doesn't run into it
-b26_h = 2.90
+# Botany 2026 conference logo — sized and positioned so it ends with a
+# clean gap before the banner photos (which start at x = 25.4 below).
+b26_h = 2.70
 b26_w = b26_h * (785 / 770)
 b26_top = (HDR_H - b26_h) / 2
-b26_left = 22.6
+b26_left = 25.4 - b26_w - 0.55              # ~0.55" gap to the species banner
 add_rect(b26_left - 0.06, b26_top - 0.06, b26_w + 0.12, b26_h + 0.12, GOLD)
 slide.shapes.add_picture(F("botany2026_logo.png"),
                          Inches(b26_left), Inches(b26_top),
