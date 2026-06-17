@@ -722,23 +722,25 @@ ref_blocks = [
 add_paragraphs(ref_l, FT_TOP + 0.55, ref_w, max(FT_H - 0.60, 0.10),
                ref_blocks, font=SERIF, line_spacing=1.12)
 
-# --- DOWNLOAD THIS POSTER (centre of footer): label on top, QR + URL beside ---
+# --- DOWNLOAD THIS POSTER (centre of footer) ---
+# Label centred over the block; QR centred horizontally under the label;
+# URL text sits to the right of the QR, vertically centred on it.
 dl_l = 28.5
 dl_w = 5.8
 add_text(dl_l, FT_TOP + 0.10, dl_w, 0.30,
          "DOWNLOAD THIS POSTER",
          font=SANS, size=12, bold=True, color=GREEN_DARK,
          letter_spacing=4, align=PP_ALIGN.CENTER)
-# QR sits below the label on the left; URL text sits to its right
 qr_size_dl = 1.12
 qr_top_dl  = FT_TOP + 0.45
-qr_l_dl    = dl_l + 0.10
+qr_l_dl    = dl_l + (dl_w - qr_size_dl) / 2     # centred under the label
 slide.shapes.add_picture(F("qr_github.png"),
                          Inches(qr_l_dl), Inches(qr_top_dl),
                          Inches(qr_size_dl), Inches(qr_size_dl))
-add_text(qr_l_dl + qr_size_dl + 0.20,
+url_left = qr_l_dl + qr_size_dl + 0.20
+add_text(url_left,
          qr_top_dl + qr_size_dl / 2 - 0.15,
-         dl_w - qr_size_dl - 0.30, 0.30,
+         47 - url_left - 0.10, 0.30,
          "github.com/Flora-of-the-World/Botany_2026",
          font=SANS, size=10, italic=True, color=INK_SOFT,
          align=PP_ALIGN.LEFT)
