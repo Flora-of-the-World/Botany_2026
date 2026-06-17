@@ -208,22 +208,22 @@ add_text(0.9 + fotw_w + 0.5, 0.18, 18, 0.32,
          "BOTANY 2026  ·  POSTER PRESENTATION",
          font=SANS, size=14, color=GOLD_SOFT, letter_spacing=10, bold=True)
 
-# Title — bigger fonts so the title reads clearly on the PNG preview
+# Title — large fonts so everything reads clearly at print and on the PNG
 title_left = 0.9 + fotw_w + 0.5
 title_w    = 18
 add_text(title_left, 0.55, title_w, 1.7, "Flora of the World",
          font=SERIF, size=66, bold=True, color=WHITE, line_spacing=1.0)
-add_text(title_left, 2.20, title_w, 0.65,
+add_text(title_left, 1.86, title_w, 0.80,
          "An online platform documenting plants in their native habitats",
-         font=SERIF, size=22, italic=True, color=GOLD_SOFT, line_spacing=1.05)
+         font=SERIF, size=44, italic=True, color=GOLD_SOFT, line_spacing=1.05)
 
 # Authors + affiliations
-add_text(title_left, 2.95, title_w, 0.50,
+add_text(title_left, 2.80, title_w, 0.60,
          "Sven Buerki¹²  ·  Kenny Williams¹  ·  Jim Beck²  ·  Sharon R. Christoph¹",
-         font=SANS, size=17, color=WHITE, line_spacing=1.0)
-add_text(title_left, 3.50, title_w + 5, 0.50,
+         font=SANS, size=32, color=WHITE, line_spacing=1.0)
+add_text(title_left, 3.50, title_w + 5, 0.60,
          "¹ Flora of the World Foundation     ² Boise State University, Idaho, USA",
-         font=SANS, size=13, italic=True, color=GOLD_SOFT)
+         font=SANS, size=30, italic=True, color=GOLD_SOFT)
 
 # Botany 2026 conference logo — sized and positioned so it ends with a
 # clean gap before the banner photos (which start at x = 25.4 below).
@@ -242,22 +242,23 @@ slide.shapes.add_picture(F("botany2026_logo.png"),
 banner_top = 0.35
 banner_h   = 3.70                 # fills most of the 4.4" header
 gap        = 0.15
-# Photo widths, keeping each source aspect (no crop)
+# Photo widths, keeping each source aspect (Piper widened so its label fits)
 frey_w  = banner_h * 4 / 3        # 4:3 landscape
-piper_w = banner_h * 3 / 4        # 3:4 portrait
+piper_w = banner_h * 4 / 5        # widened from 3:4 (0.75) → 4:5 (0.80) so the
+                                  # "Piper auritum Kunth · Piperaceae" label
+                                  # at 14 pt fits inside the dark label strip
 carn_w  = banner_h * 4 / 3        # 4:3 landscape
-# Layout: title ends ~24.4 (title_left + title_w), URL pill starts at 38.6
-banner_left = 25.4                # gap to title and to URL pill
+banner_left = 25.4
 
-def banner_photo(left, top, w, h, image_path, runs):
+def banner_photo(left, top, w, h, image_path, runs, label_h=0.55):
     add_rect(left - 0.07, top - 0.07, w + 0.14, h + 0.14, GOLD)
     add_image_fit(F(image_path), left, top, w, h, anchor="center")
-    add_rect(left, top + h - 0.28, w, 0.28, GREEN_DARK)
+    add_rect(left, top + h - label_h, w, label_h, GREEN_DARK)
     add_paragraphs(
-        left, top + h - 0.26, w, 0.24,
-        [("", {"runs": runs, "size": 8, "color": WHITE,
+        left, top + h - label_h + 0.02, w, label_h - 0.04,
+        [("", {"runs": runs, "size": 14, "color": WHITE,
                 "align": PP_ALIGN.CENTER, "space_after": 0})],
-        font=SANS, line_spacing=1.0,
+        font=SANS, line_spacing=1.05,
     )
 
 # Freycinetia
@@ -279,28 +280,29 @@ banner_photo(carn_left, banner_top, carn_w, banner_h,
               (" (Engelm.) Britton & Rose  ·  Cactaceae", {})])
 
 # Right-side: URL pill with QR code on the right inside the same card
-pill_left = 38.6
+# (shifted right slightly so the widened Piper banner photo doesn't touch it)
+pill_left = 38.75
 pill_top  = 0.50
 pill_w    = 8.2
 pill_h    = 3.40
 add_rect(pill_left, pill_top, pill_w, pill_h, WHITE)
 # Left part of pill: URL info
 url_w = pill_w * 0.62
-add_text(pill_left + 0.15, pill_top + 0.30, url_w - 0.30, 0.40,
+add_text(pill_left + 0.15, pill_top + 0.30, url_w - 0.30, 0.45,
          "VISIT THE PLATFORM",
          font=SANS, size=12, color=GREEN_MID,
          align=PP_ALIGN.CENTER, letter_spacing=6, bold=True)
-add_text(pill_left + 0.15, pill_top + 0.75, url_w - 0.30, 0.70,
+add_text(pill_left + 0.15, pill_top + 0.75, url_w - 0.30, 0.75,
          "floraoftheworld.org",
          font=SERIF, size=24, color=GREEN_DARK, bold=True,
          align=PP_ALIGN.CENTER)
-add_text(pill_left + 0.15, pill_top + 1.60, url_w - 0.30, 0.50,
+add_text(pill_left + 0.15, pill_top + 1.60, url_w - 0.30, 0.70,
          "Scan the QR code\nto explore the platform",
-         font=SANS, size=13, italic=True, color=GREEN_MID,
+         font=SANS, size=16, italic=True, color=GREEN_MID,
          align=PP_ALIGN.CENTER, line_spacing=1.2)
-add_text(pill_left + 0.15, pill_top + 2.55, url_w - 0.30, 0.65,
+add_text(pill_left + 0.15, pill_top + 2.55, url_w - 0.30, 0.70,
          "232,435 images · 6,010 species\n52 countries · 956 contributors",
-         font=SANS, size=12, italic=True, color=INK_SOFT,
+         font=SANS, size=14, italic=True, color=INK_SOFT,
          align=PP_ALIGN.CENTER, line_spacing=1.25)
 # Right part of pill: QR code square
 qr_box_size = pill_h - 0.40
@@ -359,7 +361,7 @@ add_text(COL1_L, y, COL_W, NA_H - 0.85,
          "inventories — pairing high-resolution digital imagery with "
          "field-collected specimens to preserve morphological, ecological, "
          "and geographic context.",
-         font=SERIF, size=19, color=INK, line_spacing=1.32)
+         font=SERIF, size=28, color=INK, line_spacing=1.32)
 
 # --- Col 2: INNOVATIVE APPROACH (with clearer 12 callout)
 y = NA_TOP
@@ -371,7 +373,7 @@ add_text(COL2_L, y, COL_W, 1.55,
          "times to capture diagnostic features, habitat, and variation. "
          "We aim to document at least one species from every flowering "
          "plant family.",
-         font=SERIF, size=17, color=INK, line_spacing=1.28)
+         font=SERIF, size=22, color=INK, line_spacing=1.28)
 y += 1.60
 # Clear, labelled 12 callout — sized to fit the available cb_h
 cb_h = max(NA_BOT - y - 0.05, 1.0)
@@ -406,7 +408,7 @@ add_text(COL3_L, y, COL_W, 1.05,
          "Flora of the World is built by people — collector profiles, "
          "a publications database, and pages for partner herbaria, gardens, "
          "and research organisations.",
-         font=SERIF, size=16, color=INK, line_spacing=1.26)
+         font=SERIF, size=22, color=INK, line_spacing=1.26)
 y += 1.10
 strip_h = max(NA_BOT - y - 0.05, 0.10)
 seg_w3 = (COL_W - 0.30) / 3
@@ -476,14 +478,23 @@ add_paragraphs(
              "botanical research and conservation worldwide ", {}),
             ("(Taylor et al. 2023)", {"italic": True, "color": GREEN_MID}),
             (".", {}),
-        ], "size": 16, "color": INK, "space_after": 6}),
+        ], "size": 22, "color": INK, "space_after": 6}),
     ],
     font=SERIF, line_spacing=1.28,
 )
-add_text(tx_l, fl_inner_top + fl_inner_h - 0.65, tx_w, 0.55,
-         "Dr. Davidson collecting Pancheria hirsuta (Cunoniaceae), "
-         "New Caledonia.",
-         font=SANS, size=12, italic=True, color=INK_SOFT, line_spacing=1.18)
+# Pancheria caption goes RIGHT below the founder text (not at panel bottom)
+add_paragraphs(
+    tx_l, fl_inner_top + fl_inner_h - 0.65, tx_w, 0.55,
+    [
+        ("", {"runs": [
+            ("Dr. Davidson collecting ", {}),
+            ("Pancheria hirsuta", {"italic": True}),
+            (" (Cunoniaceae), New Caledonia.", {}),
+        ], "size": 22, "italic": False, "color": INK_SOFT,
+         "space_after": 0}),
+    ],
+    font=SANS, line_spacing=1.18,
+)
 
 # ---- PANEL 2: Library — pre-cropped 1.66:1 photo, fit-fill to fill the box
 add_rect(p2_l, fl_inner_top, panel_w, fl_inner_h, CARD)
@@ -495,10 +506,10 @@ lib_w_avail = panel_w - 0.40
 lib_h = fl_inner_h - 0.75 - 1.00
 add_image_fit(F("library.jpg"), p2_l + 0.20, lib_top, lib_w_avail, lib_h,
               frame_color=GREEN_DARK, frame_weight=1.0)
-add_text(p2_l + 0.25, lib_top + lib_h + 0.10, panel_w - 0.50, 0.85,
+add_text(p2_l + 0.25, lib_top + lib_h + 0.10, panel_w - 0.50, 0.95,
          "Dr. Davidson assembled an extensive natural-history library — "
          "taxonomic and ecological context being integrated into the platform.",
-         font=SERIF, size=14, italic=True, color=INK, line_spacing=1.22)
+         font=SERIF, size=22, italic=True, color=INK, line_spacing=1.22)
 
 # ---- PANEL 3: Living Legacy — caption on LEFT, gardens (bigger) on RIGHT
 add_rect(p3_l, fl_inner_top, panel_w, fl_inner_h, CARD)
@@ -512,7 +523,7 @@ add_text(txt_l_local, fl_inner_top + 0.75, txt_w_local,
          fl_inner_h - 1.00,
          "Two private gardens (Idaho) founded by Dr. Davidson — living "
          "plant collections carrying the mission forward.",
-         font=SERIF, size=14, italic=True, color=INK, line_spacing=1.22)
+         font=SERIF, size=22, italic=True, color=INK, line_spacing=1.22)
 # Right area: two garden photos side-by-side, BIGGER (fit-fill so they fill)
 gd_top = fl_inner_top + 0.75
 gd_avail_h = fl_inner_h - 0.75 - 0.50   # leave a small caption strip below
@@ -547,7 +558,7 @@ add_text(geo_left, GEO_TOP, 24, 0.55, "GEOGRAPHIC REACH",
          font=SANS, size=24, bold=True, color=GREEN_DARK, letter_spacing=4)
 add_text(geo_left + 14, GEO_TOP + 0.05, geo_w - 14, 0.55,
          "19,640 occurrences  ·  52 countries  ·  722 locations  ·  3,842 collection events",
-         font=SERIF, size=18, italic=True, color=INK_SOFT,
+         font=SERIF, size=22, italic=True, color=INK_SOFT,
          align=PP_ALIGN.RIGHT)
 add_line(geo_left, GEO_TOP + 0.65, geo_left + 1.4, GEO_TOP + 0.65,
          color=GOLD, weight=3)
@@ -578,9 +589,9 @@ add_rect(geo_left, dd_top, sub_w, dd_h, CARD)
 add_text(geo_left + 0.20, dd_top + 0.12, sub_w - 0.40, 0.42,
          "TOP 12 COUNTRIES", font=SANS, size=18, bold=True,
          color=GREEN_DARK, letter_spacing=4)
-add_text(geo_left + 0.20, dd_top + 0.50, sub_w - 0.40, 0.38,
+add_text(geo_left + 0.20, dd_top + 0.50, sub_w - 0.40, 0.45,
          "Where the collection has been built",
-         font=SERIF, size=14, italic=True, color=INK_SOFT)
+         font=SERIF, size=22, italic=True, color=INK_SOFT)
 add_image_contain(F("chart_countries.png"),
                   geo_left + 0.15, dd_top + HEAD_H,
                   sub_w - 0.30, dd_h - HEAD_H - 0.20)
@@ -591,9 +602,9 @@ add_rect(p2, dd_top, sub_w, dd_h, CARD)
 add_text(p2 + 0.20, dd_top + 0.12, sub_w - 0.40, 0.42,
          "TOP 15 FAMILIES", font=SANS, size=18, bold=True,
          color=GREEN_DARK, letter_spacing=4)
-add_text(p2 + 0.20, dd_top + 0.50, sub_w - 0.40, 0.38,
+add_text(p2 + 0.20, dd_top + 0.50, sub_w - 0.40, 0.45,
          "Coverage across 482 flowering-plant families",
-         font=SERIF, size=14, italic=True, color=INK_SOFT)
+         font=SERIF, size=22, italic=True, color=INK_SOFT)
 add_image_contain(F("chart_families.png"),
                   p2 + 0.15, dd_top + HEAD_H,
                   sub_w - 0.30, dd_h - HEAD_H - 0.20)
@@ -604,9 +615,9 @@ add_rect(p3, dd_top, sub_w, dd_h, CARD)
 add_text(p3 + 0.20, dd_top + 0.12, sub_w - 0.40, 0.42,
          "MOST IRREPLACEABLE PLANTS", font=SANS, size=18, bold=True,
          color=GREEN_DARK, letter_spacing=4)
-add_text(p3 + 0.20, dd_top + 0.50, sub_w - 0.40, 0.38,
+add_text(p3 + 0.20, dd_top + 0.50, sub_w - 0.40, 0.45,
          "Safeguarding the world’s most evolutionarily distinct flora",
-         font=SERIF, size=14, italic=True, color=INK_SOFT)
+         font=SERIF, size=22, italic=True, color=INK_SOFT)
 add_image_contain(F("edge_irreplaceable.png"),
                   p3 + 0.15, dd_top + HEAD_H,
                   sub_w - 0.30, dd_h - HEAD_H - 0.20)
@@ -674,7 +685,7 @@ add_paragraphs(
              "Botanical Garden (253), MNHN Paris (56). We are actively "
              "digitising herbarium sheets to link images to our occurrences.",
              {}),
-        ], "size": 12, "color": INK, "space_after": 0}),
+        ], "size": 16, "color": INK, "space_after": 0}),
     ],
     font=SERIF, line_spacing=1.22,
 )
@@ -696,13 +707,13 @@ slide.shapes.add_picture(F("bsu_logo_trim.png"),
                          Inches(bsu_logo_w), Inches(bsu_logo_h))
 bt_l = pb_l + bsu_card_w + 0.20
 bt_w = pb_w - (bt_l - pb_l)
-add_text(bt_l, part_card_y + 0.05, bt_w, 0.65,
+add_text(bt_l, part_card_y + 0.05, bt_w, 0.50,
          "Dr. Christopher Davidson Endowed Chair in Botany",
-         font=SERIF, size=14, bold=True, color=WHITE, line_spacing=1.12)
-add_text(bt_l, part_card_y + 0.75, bt_w, b_card_h - 0.80,
+         font=SERIF, size=15, bold=True, color=WHITE, line_spacing=1.12)
+add_text(bt_l, part_card_y + 0.70, bt_w, b_card_h - 0.75,
          "Established in 2024 at Boise State University with "
          "Associate Professor Sven Buerki as inaugural chair.",
-         font=SERIF, size=11, italic=True, color=GOLD_SOFT, line_spacing=1.20)
+         font=SERIF, size=16, italic=True, color=GOLD_SOFT, line_spacing=1.20)
 
 # --- ZONE C: ACKNOWLEDGEMENTS ----------
 add_text(pc_l, CTA_TOP + 0.15, pc_w, 0.40,
@@ -721,12 +732,12 @@ add_paragraphs(
             (", and the ", {}),
             ("Royal Botanic Gardens, Kew", {"bold": True}),
             (".", {}),
-        ], "size": 11, "color": INK, "space_after": 4}),
+        ], "size": 16, "color": INK, "space_after": 4}),
         ("", {"runs": [
             ("Full list at ", {}),
             ("floraoftheworld.org/acknowledgements",
              {"bold": True, "color": GREEN_DARK}),
-        ], "size": 10, "italic": True, "color": INK_SOFT, "space_after": 0}),
+        ], "size": 14, "italic": True, "color": INK_SOFT, "space_after": 0}),
     ],
     font=SERIF, line_spacing=1.20,
 )
@@ -750,23 +761,23 @@ ref_blocks = [
         ("“High risk of extinction across the flowering plant tree of life.”",
          {"italic": True}),
         (" Science 392 (6798): 655–659. doi.org/10.1126/science.adz0773", {}),
-    ], "size": 11, "color": INK, "space_after": 2}),
+    ], "size": 12, "color": INK, "space_after": 2}),
     ("", {"runs": [
         ("Forest, F., J. Moat, E. Baloch, et al. 2018. ", {}),
         ("“Gymnosperms on the EDGE.”", {"italic": True}),
         (" Scientific Reports 8: 6053. doi.org/10.1038/s41598-018-24365-4", {}),
-    ], "size": 11, "color": INK, "space_after": 2}),
+    ], "size": 12, "color": INK, "space_after": 2}),
     ("", {"runs": [
         ("Taylor, C. M., R. E. Gereau, W. D. Stevens, S. Buerki, "
          "O. M. Montiel, and S. Christoph. 2023. ", {}),
         ("“In Memoriam: Chris Davidson (1944–2022), the Idaho Botanist "
          "Who Botanized the World.”", {"italic": True}),
         (" Annals of the Missouri Botanical Garden 108. doi.org/10.3417/2023858", {}),
-    ], "size": 11, "color": INK, "space_after": 2}),
+    ], "size": 12, "color": INK, "space_after": 2}),
     ("", {"runs": [
         ("Full publication list at ", {}),
         ("floraoftheworld.org/publications", {"bold": True, "color": GREEN_DARK}),
-    ], "size": 11, "italic": True, "color": INK_SOFT, "space_after": 0}),
+    ], "size": 12, "italic": True, "color": INK_SOFT, "space_after": 0}),
 ]
 add_paragraphs(ref_l, FT_TOP + 0.55, ref_w, max(FT_H - 0.60, 0.10),
                ref_blocks, font=SERIF, line_spacing=1.12)
@@ -791,7 +802,7 @@ add_text(url_left,
          qr_top_dl + qr_size_dl / 2 - 0.15,
          47 - url_left - 0.10, 0.30,
          "github.com/Flora-of-the-World/Botany_2026",
-         font=SANS, size=10, italic=True, color=INK_SOFT,
+         font=SANS, size=12, italic=True, color=INK_SOFT,
          align=PP_ALIGN.LEFT)
 
 # Contact (right) — compact for the 1.4" footer
