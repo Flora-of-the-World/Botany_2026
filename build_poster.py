@@ -225,6 +225,17 @@ add_text(title_left, 3.40, title_w + 5, 0.45,
          "¹ Flora of the World Foundation     ² Boise State University, Idaho, USA",
          font=SANS, size=11, italic=True, color=GOLD_SOFT)
 
+# Botany 2026 conference logo — sits in the empty space between the title
+# block (ends ~17") and the banner photos (start at 25.4")
+b26_h = 3.30
+b26_w = b26_h * (785 / 770)        # nearly square source aspect
+b26_top = (HDR_H - b26_h) / 2
+b26_left = 21.5 - b26_w / 2
+add_rect(b26_left - 0.06, b26_top - 0.06, b26_w + 0.12, b26_h + 0.12, GOLD)
+slide.shapes.add_picture(F("botany2026_logo.png"),
+                         Inches(b26_left), Inches(b26_top),
+                         Inches(b26_w), Inches(b26_h))
+
 # Banner accent: three species photos side-by-side, filling header height
 # Freycinetia biloba (4:3 landscape) · Piper auritum (3:4 portrait) ·
 # Carnegiea gigantea (4:3 landscape)
@@ -620,9 +631,9 @@ add_text(pa_l, CTA_TOP + 0.15, p_w, 0.40,
 part_card_y = CTA_TOP + 0.55
 part_card_h = panel_h - 0.55
 add_rect(pa_l, part_card_y, p_w, part_card_h, WHITE)
-# Top row (logos, ~55% of card height) — both centred together, close gap
-logo_row_h = part_card_h * 0.55
-margin     = 0.08
+# Top row (logos, ~50% of card height) — both centred together, close gap
+logo_row_h = part_card_h * 0.50
+margin     = 0.05
 logo_h     = logo_row_h - 2 * margin
 wfo_aspect, edge_aspect = 1600 / 533, 291 / 142
 wfo_w  = logo_h * wfo_aspect
@@ -635,14 +646,17 @@ add_image_contain(F("wfo_logo_full_dark.png"),
 add_image_contain(F("edge_logo_dark.png"),
                   logos_x + wfo_w + logo_gap, part_card_y + margin,
                   edge_w, logo_h)
-# Bottom row: Anchored in the World's Herbaria text
-text_y = part_card_y + logo_row_h + 0.05
-text_h = part_card_h - logo_row_h - 0.10
-add_text(pa_l + 0.20, text_y, p_w - 0.40, 0.40,
+# Bottom row: Anchored in the World's Herbaria — tucked right under the logos
+# with no daylight, so the heading sits high in the card and the body line
+# rests just below it (rather than at the card bottom with empty space above).
+logos_bottom = part_card_y + margin + logo_h
+text_y = logos_bottom + 0.02
+text_h = part_card_h - (text_y - part_card_y) - 0.05
+add_text(pa_l + 0.20, text_y, p_w - 0.40, 0.24,
          "ANCHORED IN THE WORLD'S HERBARIA",
          font=SANS, size=12, bold=True, color=GREEN_DARK, letter_spacing=4)
 add_paragraphs(
-    pa_l + 0.20, text_y + 0.40, p_w - 0.40, text_h - 0.40,
+    pa_l + 0.20, text_y + 0.24, p_w - 0.40, text_h - 0.24,
     [
         ("", {"runs": [
             ("Our occurrences are anchored to ", {}),
