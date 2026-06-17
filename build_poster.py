@@ -203,34 +203,34 @@ fotw_w = fotw_h * (1600 / 957)
 slide.shapes.add_picture(F("fotw_logo.png"), Inches(0.9), Inches(0.40),
                          Inches(fotw_w), Inches(fotw_h))
 
-# Overline beside logo
-add_text(0.9 + fotw_w + 0.5, 0.50, 18, 0.45,
+# Overline beside logo — sits above the title
+add_text(0.9 + fotw_w + 0.5, 0.18, 18, 0.32,
          "BOTANY 2026  ·  POSTER PRESENTATION",
-         font=SANS, size=17, color=GOLD_SOFT, letter_spacing=10, bold=True)
+         font=SANS, size=14, color=GOLD_SOFT, letter_spacing=10, bold=True)
 
-# Title — even narrower so the three banner photos can each be big
+# Title — bigger fonts so the title reads clearly on the PNG preview
 title_left = 0.9 + fotw_w + 0.5
-title_w    = 20
-add_text(title_left, 0.95, title_w, 1.5, "Flora of the World",
-         font=SERIF, size=50, bold=True, color=WHITE, line_spacing=1.0)
-add_text(title_left, 2.20, title_w, 0.60,
+title_w    = 18
+add_text(title_left, 0.55, title_w, 1.7, "Flora of the World",
+         font=SERIF, size=66, bold=True, color=WHITE, line_spacing=1.0)
+add_text(title_left, 2.20, title_w, 0.65,
          "An online platform documenting plants in their native habitats",
-         font=SERIF, size=18, italic=True, color=GOLD_SOFT, line_spacing=1.05)
+         font=SERIF, size=22, italic=True, color=GOLD_SOFT, line_spacing=1.05)
 
 # Authors + affiliations
-add_text(title_left, 2.90, title_w, 0.45,
+add_text(title_left, 2.95, title_w, 0.50,
          "Sven Buerki¹²  ·  Kenny Williams¹  ·  Jim Beck²  ·  Sharon R. Christoph¹",
-         font=SANS, size=15, color=WHITE, line_spacing=1.0)
-add_text(title_left, 3.40, title_w + 5, 0.45,
+         font=SANS, size=17, color=WHITE, line_spacing=1.0)
+add_text(title_left, 3.50, title_w + 5, 0.50,
          "¹ Flora of the World Foundation     ² Boise State University, Idaho, USA",
-         font=SANS, size=11, italic=True, color=GOLD_SOFT)
+         font=SANS, size=13, italic=True, color=GOLD_SOFT)
 
-# Botany 2026 conference logo — sits in the empty space between the title
-# block (ends ~17") and the banner photos (start at 25.4")
-b26_h = 3.30
-b26_w = b26_h * (785 / 770)        # nearly square source aspect
+# Botany 2026 conference logo — slightly smaller and shifted right so the
+# bigger title text doesn't run into it
+b26_h = 2.90
+b26_w = b26_h * (785 / 770)
 b26_top = (HDR_H - b26_h) / 2
-b26_left = 21.5 - b26_w / 2
+b26_left = 22.6
 add_rect(b26_left - 0.06, b26_top - 0.06, b26_w + 0.12, b26_h + 0.12, GOLD)
 slide.shapes.add_picture(F("botany2026_logo.png"),
                          Inches(b26_left), Inches(b26_top),
