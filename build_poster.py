@@ -339,7 +339,7 @@ add_rect(ss_left, SS_TOP, ss_right - ss_left, 0.10, GOLD)
 
 # ============================================================ NARRATIVE
 NA_TOP = SS_TOP + SS_H + 0.35
-NA_BOT = 9.80
+NA_BOT = 10.30
 NA_H = NA_BOT - NA_TOP
 
 GAP = 0.55
@@ -429,7 +429,7 @@ for i, (n, lab) in enumerate(items):
 
 # ============================================================ FOUNDER LEGACY
 FL_TOP = NA_BOT + 0.35
-FL_BOT = 14.35
+FL_BOT = 14.85
 FL_H = FL_BOT - FL_TOP
 
 # Title strip across full band
@@ -538,7 +538,7 @@ add_text(photos_left_x + each_w + gap_px, lbl_y, each_w, 0.32,
 # ============================================================ GEOGRAPHIC REACH
 GEO_TOP = FL_BOT + 0.30
 GEO_BOT = 25.50
-GEO_H = GEO_BOT - GEO_TOP
+GEO_H = GEO_BOT - GEO_TOP    # map band: ~10.35" tall
 geo_left = SS_MARGIN
 geo_right = 48 - SS_MARGIN
 geo_w = geo_right - geo_left
