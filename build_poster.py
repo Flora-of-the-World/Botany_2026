@@ -222,7 +222,8 @@ add_text(title_left, 2.80, title_w, 0.60,
          "Sven Buerki¹²  ·  Kenny Williams¹  ·  Jim Beck²  ·  Sharon R. Christoph¹",
          font=SANS, size=32, color=WHITE, line_spacing=1.0)
 add_text(title_left, 3.50, title_w + 5, 0.60,
-         "¹ Flora of the World Foundation     ² Boise State University, Idaho, USA",
+         "¹ Flora of the World Foundation, Idaho, USA     "
+         "² Boise State University, Idaho, USA",
          font=SANS, size=30, italic=True, color=GOLD_SOFT)
 
 # Botany 2026 conference logo — sized and positioned so it ends with a
