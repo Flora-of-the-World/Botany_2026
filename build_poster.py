@@ -435,14 +435,15 @@ FL_BOT = 15.85
 FL_H = FL_BOT - FL_TOP
 
 # Title strip across full band
-add_text(SS_MARGIN, FL_TOP, 38, 0.55,
+add_text(SS_MARGIN, FL_TOP, 38, 0.50,
          "A LEGACY OF EXPLORATION — Dr. Christopher Davidson (1944–2022)",
-         font=SANS, size=24, bold=True, color=GREEN_DARK, letter_spacing=4)
-add_line(SS_MARGIN, FL_TOP + 0.65, SS_MARGIN + 1.4, FL_TOP + 0.65,
+         font=SANS, size=22, bold=True, color=GREEN_DARK, letter_spacing=4)
+add_line(SS_MARGIN, FL_TOP + 0.50, SS_MARGIN + 1.4, FL_TOP + 0.50,
          color=GOLD, weight=3)
 
-# Three card panels — compact layout for 4.2" band height
-fl_inner_top = FL_TOP + 0.85
+# Three card panels — tighten the title strip so the panels gain ~0.30"
+# of inner height; that goes straight into bigger photos
+fl_inner_top = FL_TOP + 0.55
 fl_inner_h   = FL_BOT - fl_inner_top
 panel_w = (48 - 2*SS_MARGIN - 2*GAP) / 3
 p1_l = SS_MARGIN
@@ -555,11 +556,13 @@ add_text(photos_left_x + each_w + gap_px, lbl_y, each_w, 0.32,
 
 # ============================================================ GEOGRAPHIC REACH
 GEO_TOP = FL_BOT + 0.30
-GEO_BOT = 26.35
-GEO_H = GEO_BOT - GEO_TOP    # map band: ~10.20" tall — central crop covers
-                              # contiguous USA, all of South America to mid-
-                              # Argentina, all of Africa (incl. Cape Town /
-                              # Eastern Cape), and most of Australia
+GEO_BOT = 27.35
+GEO_H = GEO_BOT - GEO_TOP    # map band: ~11.20" tall — central crop covers
+                              # most of Canada (down to ~52°N, incl. Vancouver
+                              # / Seattle), contiguous USA, all of South
+                              # America to mid-Argentina, all of Africa
+                              # (incl. Cape Town / Eastern Cape), and most
+                              # of Australia
 geo_left = SS_MARGIN
 geo_right = 48 - SS_MARGIN
 geo_w = geo_right - geo_left
@@ -580,7 +583,7 @@ add_image_fit(F("map_full.png"), geo_left, map_top, geo_w, map_h,
 
 # ============================================================ DATA & DIVERSITY
 DD_TOP = GEO_BOT + 0.25
-DD_BOT = 31.40
+DD_BOT = 31.90
 DD_H = DD_BOT - DD_TOP
 
 add_text(geo_left, DD_TOP, 30, 0.55, "DATA · DIVERSITY · CONSERVATION",
@@ -634,7 +637,7 @@ add_image_contain(F("edge_irreplaceable.png"),
 
 # ============================================================ PARTNERS + CTA
 CTA_TOP = DD_BOT + 0.20
-CTA_H = 2.10
+CTA_H = 1.80
 add_rect(0, CTA_TOP, 48, CTA_H, GREEN_DARK)
 add_rect(0, CTA_TOP, 48, 0.08, GOLD)
 
