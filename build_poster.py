@@ -426,7 +426,7 @@ for i, (n, lab) in enumerate(items):
              align=PP_ALIGN.CENTER, line_spacing=1.0,
              anchor=MSO_ANCHOR.MIDDLE)
     add_text(sx, y + 0.05 + num_h, seg_w3, lab_h, lab,
-             font=SANS, size=12, italic=True, color=GOLD_SOFT,
+             font=SANS, size=20, italic=True, color=GOLD_SOFT,
              align=PP_ALIGN.CENTER, line_spacing=1.0,
              anchor=MSO_ANCHOR.MIDDLE)
 
