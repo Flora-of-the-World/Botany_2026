@@ -341,7 +341,7 @@ add_rect(ss_left, SS_TOP, ss_right - ss_left, 0.10, GOLD)
 
 # ============================================================ NARRATIVE
 NA_TOP = SS_TOP + SS_H + 0.35
-NA_BOT = 10.30
+NA_BOT = 9.90           # trimmed so LEGACY can start higher and gain ~0.40"
 NA_H = NA_BOT - NA_TOP
 
 GAP = 0.55
@@ -367,14 +367,14 @@ add_text(COL1_L, y, COL_W, NA_H - 0.85,
 y = NA_TOP
 section_header(COL2_L, y, COL_W, "An Innovative Approach", size=22)
 y += 0.80
-add_text(COL2_L, y, COL_W, 1.55,
+add_text(COL2_L, y, COL_W, 1.35,
          "What makes Flora of the World singular is the depth of its "
          "visual documentation: each occurrence is photographed many "
          "times to capture diagnostic features, habitat, and variation. "
          "We aim to document at least one species from every flowering "
          "plant family.",
          font=SERIF, size=22, color=INK, line_spacing=1.28)
-y += 1.60
+y += 1.40
 # Clear, labelled 12 callout — sized to fit the available cb_h
 cb_h = max(NA_BOT - y - 0.05, 1.0)
 add_rect(COL2_L, y, COL_W, cb_h, GREEN_DARK)
@@ -430,7 +430,7 @@ for i, (n, lab) in enumerate(items):
              anchor=MSO_ANCHOR.MIDDLE)
 
 # ============================================================ FOUNDER LEGACY
-FL_TOP = NA_BOT + 0.35
+FL_TOP = NA_BOT + 0.25
 FL_BOT = 15.85
 FL_H = FL_BOT - FL_TOP
 
