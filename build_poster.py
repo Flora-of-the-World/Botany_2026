@@ -607,9 +607,10 @@ add_text(geo_left + 0.20, dd_top + 0.12, sub_w - 0.40, 0.42,
 add_text(geo_left + 0.20, dd_top + 0.50, sub_w - 0.40, 0.45,
          "Where the collection has been built",
          font=SERIF, size=22, italic=True, color=INK_SOFT)
-add_image_contain(F("chart_countries.png"),
-                  geo_left + 0.15, dd_top + HEAD_H,
-                  sub_w - 0.30, dd_h - HEAD_H - 0.20)
+# Chart image — exact position + size from the manual PPTX edit
+slide.shapes.add_picture(F("chart_countries.png"),
+                         Inches(6.13), Inches(28.59),
+                         Inches(9.33), Inches(3.27))
 
 # Panel 2: families (middle)
 p2 = geo_left + sub_w + GAP
@@ -620,9 +621,9 @@ add_text(p2 + 0.20, dd_top + 0.12, sub_w - 0.40, 0.42,
 add_text(p2 + 0.20, dd_top + 0.50, sub_w - 0.40, 0.45,
          "Coverage across 482 flowering-plant families",
          font=SERIF, size=22, italic=True, color=INK_SOFT)
-add_image_contain(F("chart_families.png"),
-                  p2 + 0.15, dd_top + HEAD_H,
-                  sub_w - 0.30, dd_h - HEAD_H - 0.20)
+slide.shapes.add_picture(F("chart_families.png"),
+                         Inches(22.88), Inches(28.65),
+                         Inches(8.20), Inches(3.27))
 
 # Panel 3: EDGE (right)
 p3 = geo_left + 2 * (sub_w + GAP)
@@ -633,9 +634,14 @@ add_text(p3 + 0.20, dd_top + 0.12, sub_w - 0.40, 0.42,
 add_text(p3 + 0.20, dd_top + 0.50, 4.58, 1.28,
          "Safeguarding the world’s most evolutionarily distinct flora",
          font=SERIF, size=22, italic=True, color=INK_SOFT)
-add_image_contain(F("edge_irreplaceable.png"),
-                  p3 + 0.15, dd_top + HEAD_H,
-                  sub_w - 0.30, dd_h - HEAD_H - 0.20)
+slide.shapes.add_picture(F("edge_irreplaceable.png"),
+                         Inches(37.95), Inches(28.64),
+                         Inches(6.10), Inches(3.27))
+# EDGE logo overlay inside the panel — matches the manual PPTX edit
+# (moved here from the CTA Active-Partnerships card).
+slide.shapes.add_picture(F("edge_logo_dark.png"),
+                         Inches(33.52), Inches(30.53),
+                         Inches(1.57), Inches(0.77))
 
 # ============================================================ PARTNERS + CTA
 CTA_TOP = DD_BOT + 0.20
@@ -657,39 +663,17 @@ pb_l = pa_l + pa_w + zone_gap
 pc_l = pb_l + pb_w + zone_gap
 p_w  = pa_w                                  # legacy alias used by Partnerships
 
-# --- ZONE A: PARTNERS — WFO + EDGE logos closer together (top), then text
+# --- ZONE A: PARTNERS — body text on the left + WFO logo on the right
+# (No sub-header, no EDGE logo; EDGE moves into the EDGE chart panel below.)
 add_text(pa_l, CTA_TOP + 0.15, p_w, 0.40,
          "ACTIVE PARTNERSHIPS",
          font=SANS, size=14, bold=True, color=GOLD, letter_spacing=6)
 part_card_y = CTA_TOP + 0.55
 part_card_h = panel_h - 0.55
 add_rect(pa_l, part_card_y, p_w, part_card_h, WHITE)
-# Top row (logos, ~50% of card height) — both centred together, close gap
-logo_row_h = part_card_h * 0.50
-margin     = 0.05
-logo_h     = logo_row_h - 2 * margin
-wfo_aspect, edge_aspect = 1600 / 533, 291 / 142
-wfo_w  = logo_h * wfo_aspect
-edge_w = logo_h * edge_aspect
-logo_gap = 0.30
-total_lw = wfo_w + logo_gap + edge_w
-logos_x  = pa_l + (p_w - total_lw) / 2
-add_image_contain(F("wfo_logo_full_dark.png"),
-                  logos_x, part_card_y + margin, wfo_w, logo_h)
-add_image_contain(F("edge_logo_dark.png"),
-                  logos_x + wfo_w + logo_gap, part_card_y + margin,
-                  edge_w, logo_h)
-# Bottom row: Anchored in the World's Herbaria — tucked right under the logos
-# with no daylight, so the heading sits high in the card and the body line
-# rests just below it (rather than at the card bottom with empty space above).
-logos_bottom = part_card_y + margin + logo_h
-text_y = logos_bottom + 0.02
-text_h = part_card_h - (text_y - part_card_y) - 0.05
-add_text(pa_l + 0.20, text_y, p_w - 0.40, 0.24,
-         "ANCHORED IN THE WORLD'S HERBARIA",
-         font=SANS, size=12, bold=True, color=GREEN_DARK, letter_spacing=4)
+# Body text — content + position match the manual PPTX edits
 add_paragraphs(
-    pa_l + 0.20, text_y + 0.24, p_w - 0.40, text_h - 0.24,
+    pa_l, 32.72, 20.60, 0.67,
     [
         ("", {"runs": [
             ("Our occurrences are anchored to ", {}),
@@ -698,34 +682,43 @@ add_paragraphs(
             ("46 herbaria worldwide (and counting)", {"bold": True}),
             (" — top partners: Boise State University (1,771), Missouri "
              "Botanical Garden (253), MNHN Paris (56). We are actively "
-             "digitising herbarium sheets to link images to our occurrences.",
-             {}),
+             "linking digitized herbarium sheets to our occurrences and "
+             "partner with the ", {}),
+            ("World Flora Online", {"bold": True}),
+            (" community to advance Target 1 of the Global Strategy for "
+             "Plant Conservation.", {}),
         ], "size": 16, "color": INK, "space_after": 0}),
     ],
     font=SERIF, line_spacing=1.22,
 )
+# WFO logo on the right edge of the AP card (matches PPTX: L=21.47, T=32.74,
+# W=1.89, H=0.63)
+slide.shapes.add_picture(F("wfo_logo_full_dark.png"),
+                         Inches(21.47), Inches(32.74),
+                         Inches(1.89), Inches(0.63))
 
 # --- ZONE B: INSTITUTIONAL HOME (BSU + Endowed Chair) — narrower column ---
 add_text(pb_l, CTA_TOP + 0.15, pb_w, 0.40,
          "INSTITUTIONAL HOME",
          font=SANS, size=14, bold=True, color=GOLD, letter_spacing=6)
 b_card_h = part_card_h
-# BSU logo sits on a small white card on the left of the column;
-# Endowed-Chair text fills the rest of the column to its right.
-bsu_logo_h = min(b_card_h - 0.20, 0.90)
-bsu_logo_w = bsu_logo_h * (492 / 176)
-bsu_card_w = bsu_logo_w + 0.4
-add_rect(pb_l, part_card_y, bsu_card_w, b_card_h, WHITE)
+# BSU logo on a small white card on the left of the column;
+# Endowed-Chair heading and "Established in 2024" line to its right.
+bsu_logo_w = 1.82
+bsu_logo_h = 0.65
+bsu_card_x = pb_l                        # L=24.00
+bsu_card_w = bsu_logo_w + 0.40
+add_rect(bsu_card_x, part_card_y, bsu_card_w, b_card_h, WHITE)
 slide.shapes.add_picture(F("bsu_logo_trim.png"),
-                         Inches(pb_l + 0.20),
+                         Inches(bsu_card_x + 0.20),
                          Inches(part_card_y + (b_card_h - bsu_logo_h)/2),
                          Inches(bsu_logo_w), Inches(bsu_logo_h))
-bt_l = pb_l + bsu_card_w + 0.20
-bt_w = pb_w - (bt_l - pb_l)
-add_text(bt_l, part_card_y + 0.05, bt_w, 0.50,
+# Text positions match the manual PPTX edits (heading T=32.70 / L=26.42;
+# "Established in 2024" T=32.99 / L=26.42)
+add_text(26.42, 32.70, 8.88, 0.50,
          "Dr. Christopher Davidson Endowed Chair in Botany",
          font=SERIF, size=15, bold=True, color=WHITE, line_spacing=1.12)
-add_text(bt_l, part_card_y + 0.70, bt_w, b_card_h - 0.75,
+add_text(26.42, 32.99, 8.88, 0.10,
          "Established in 2024 at Boise State University with "
          "Associate Professor Sven Buerki as inaugural chair.",
          font=SERIF, size=16, italic=True, color=GOLD_SOFT, line_spacing=1.20)
