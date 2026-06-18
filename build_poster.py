@@ -334,7 +334,7 @@ for i, (big, lab) in enumerate(stats_strip):
         add_line(sx, SS_TOP + 0.20, sx, SS_TOP + SS_H - 0.20, color=SAGE, weight=1.0)
     add_text(sx, SS_TOP + 0.20, seg_w, 0.80, big, font=SERIF, size=42,
              bold=True, color=GREEN_DARK, align=PP_ALIGN.CENTER, line_spacing=1.0)
-    add_text(sx, SS_TOP + 1.00, seg_w, 0.45, lab, font=SANS, size=14,
+    add_text(sx, SS_TOP + 1.00, seg_w, 0.45, lab, font=SANS, size=22,
              bold=True, color=INK_SOFT, align=PP_ALIGN.CENTER,
              letter_spacing=4, line_spacing=1.0)
 add_rect(ss_left, SS_TOP, ss_right - ss_left, 0.10, GOLD)
@@ -595,7 +595,9 @@ dd_top = DD_TOP + 0.90
 dd_h = DD_BOT - dd_top
 sub_w = (geo_w - 2 * GAP) / 3
 # Inner panel layout: small title + small subtitle, then big chart image
-HEAD_H = 0.85  # title + subtitle area inside each panel
+HEAD_H = 0.09  # title + subtitle area inside each panel — minimal so the
+               # chart images grow to ~3.27" tall (subtitles overlay alongside
+               # the chart, with the EDGE panel's subtitle narrowed to wrap)
 
 # Panel 1: countries (left)
 add_rect(geo_left, dd_top, sub_w, dd_h, CARD)
@@ -628,7 +630,7 @@ add_rect(p3, dd_top, sub_w, dd_h, CARD)
 add_text(p3 + 0.20, dd_top + 0.12, sub_w - 0.40, 0.42,
          "MOST IRREPLACEABLE PLANTS", font=SANS, size=18, bold=True,
          color=GREEN_DARK, letter_spacing=4)
-add_text(p3 + 0.20, dd_top + 0.50, sub_w - 0.40, 0.45,
+add_text(p3 + 0.20, dd_top + 0.50, 4.58, 1.28,
          "Safeguarding the world’s most evolutionarily distinct flora",
          font=SERIF, size=22, italic=True, color=INK_SOFT)
 add_image_contain(F("edge_irreplaceable.png"),
@@ -732,9 +734,13 @@ add_text(bt_l, part_card_y + 0.70, bt_w, b_card_h - 0.75,
 add_text(pc_l, CTA_TOP + 0.15, pc_w, 0.40,
          "ACKNOWLEDGEMENTS",
          font=SANS, size=14, bold=True, color=GOLD, letter_spacing=6)
-add_rect(pc_l, part_card_y, pc_w, part_card_h, WHITE)
+# White card slightly taller than the other zone cards so the multi-line
+# acknowledgements body and "Full list at" line both fit cleanly inside.
+ack_card_h = max(part_card_h, 1.15)
+add_rect(pc_l, part_card_y, pc_w, ack_card_h, WHITE)
+ack_body_h = max(ack_card_h - 0.20, 0.98)
 add_paragraphs(
-    pc_l + 0.20, part_card_y + 0.10, pc_w - 0.40, part_card_h - 0.20,
+    pc_l + 0.20, part_card_y + 0.10, pc_w - 0.40, ack_body_h,
     [
         ("", {"runs": [
             ("We gratefully thank the many botanists who have supported "
