@@ -431,7 +431,7 @@ for i, (n, lab) in enumerate(items):
 
 # ============================================================ FOUNDER LEGACY
 FL_TOP = NA_BOT + 0.35
-FL_BOT = 13.95
+FL_BOT = 15.85
 FL_H = FL_BOT - FL_TOP
 
 # Title strip across full band
@@ -496,20 +496,27 @@ add_paragraphs(
     font=SANS, line_spacing=1.18,
 )
 
-# ---- PANEL 2: Library — pre-cropped 1.66:1 photo, fit-fill to fill the box
+# ---- PANEL 2: Library — photo LEFT (at natural aspect, no severe crop)
+#                + caption RIGHT, mirroring Living Legacy's structure
 add_rect(p2_l, fl_inner_top, panel_w, fl_inner_h, CARD)
 add_text(p2_l + 0.25, fl_inner_top + 0.20, panel_w - 0.50, 0.45,
          "THE ARCHIVE",
          font=SANS, size=15, bold=True, color=GOLD, letter_spacing=8)
+# Library photo box sized close to the source's pre-cropped 1.66:1 aspect
+# so the bookshelves and world map both show with no severe horizontal slice
 lib_top = fl_inner_top + 0.75
-lib_w_avail = panel_w - 0.40
-lib_h = fl_inner_h - 0.75 - 1.00
-add_image_fit(F("library.jpg"), p2_l + 0.20, lib_top, lib_w_avail, lib_h,
+lib_h   = fl_inner_h - 0.85
+lib_w   = lib_h * (4080 / 2457)        # match the source aspect (≈ 1.66)
+add_image_fit(F("library.jpg"), p2_l + 0.20, lib_top, lib_w, lib_h,
               frame_color=GREEN_DARK, frame_weight=1.0)
-add_text(p2_l + 0.25, lib_top + lib_h + 0.10, panel_w - 0.50, 0.95,
+# Caption on the right of the photo, vertically centred
+cap_l = p2_l + 0.20 + lib_w + 0.30
+cap_w = panel_w - (cap_l - p2_l) - 0.25
+add_text(cap_l, lib_top + 0.20, cap_w, lib_h - 0.40,
          "Dr. Davidson assembled an extensive natural-history library — "
          "taxonomic and ecological context being integrated into the platform.",
-         font=SERIF, size=22, italic=True, color=INK, line_spacing=1.22)
+         font=SERIF, size=22, italic=True, color=INK,
+         line_spacing=1.22, anchor=MSO_ANCHOR.MIDDLE)
 
 # ---- PANEL 3: Living Legacy — caption on LEFT, gardens (bigger) on RIGHT
 add_rect(p3_l, fl_inner_top, panel_w, fl_inner_h, CARD)
@@ -549,9 +556,10 @@ add_text(photos_left_x + each_w + gap_px, lbl_y, each_w, 0.32,
 # ============================================================ GEOGRAPHIC REACH
 GEO_TOP = FL_BOT + 0.30
 GEO_BOT = 26.35
-GEO_H = GEO_BOT - GEO_TOP    # map band: ~12.10" tall — bigger so the central
-                              # crop covers most of North America (down to
-                              # ~55° N) and southern Africa / Argentina
+GEO_H = GEO_BOT - GEO_TOP    # map band: ~10.20" tall — central crop covers
+                              # contiguous USA, all of South America to mid-
+                              # Argentina, all of Africa (incl. Cape Town /
+                              # Eastern Cape), and most of Australia
 geo_left = SS_MARGIN
 geo_right = 48 - SS_MARGIN
 geo_w = geo_right - geo_left
@@ -572,7 +580,7 @@ add_image_fit(F("map_full.png"), geo_left, map_top, geo_w, map_h,
 
 # ============================================================ DATA & DIVERSITY
 DD_TOP = GEO_BOT + 0.25
-DD_BOT = 31.60
+DD_BOT = 31.40
 DD_H = DD_BOT - DD_TOP
 
 add_text(geo_left, DD_TOP, 30, 0.55, "DATA · DIVERSITY · CONSERVATION",
