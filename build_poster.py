@@ -192,7 +192,7 @@ def add_image_contain(path, left, top, width, height):
 add_rect(0, 0, 48, 36, CREAM)
 
 # ============================================================ HEADER
-HDR_H = 4.4
+HDR_H = 4.2
 add_rect(0, 0, 48, HDR_H, GREEN_DARK)
 add_rect(0, HDR_H, 48, 0.10, GOLD)
 add_rect(0, 0, 0.35, HDR_H, SAGE)
@@ -431,7 +431,7 @@ for i, (n, lab) in enumerate(items):
 
 # ============================================================ FOUNDER LEGACY
 FL_TOP = NA_BOT + 0.35
-FL_BOT = 14.85
+FL_BOT = 13.95
 FL_H = FL_BOT - FL_TOP
 
 # Title strip across full band
@@ -548,8 +548,10 @@ add_text(photos_left_x + each_w + gap_px, lbl_y, each_w, 0.32,
 
 # ============================================================ GEOGRAPHIC REACH
 GEO_TOP = FL_BOT + 0.30
-GEO_BOT = 25.50
-GEO_H = GEO_BOT - GEO_TOP    # map band: ~10.35" tall
+GEO_BOT = 26.35
+GEO_H = GEO_BOT - GEO_TOP    # map band: ~12.10" tall — bigger so the central
+                              # crop covers most of North America (down to
+                              # ~55° N) and southern Africa / Argentina
 geo_left = SS_MARGIN
 geo_right = 48 - SS_MARGIN
 geo_w = geo_right - geo_left
@@ -624,7 +626,7 @@ add_image_contain(F("edge_irreplaceable.png"),
 
 # ============================================================ PARTNERS + CTA
 CTA_TOP = DD_BOT + 0.20
-CTA_H = 2.40
+CTA_H = 2.10
 add_rect(0, CTA_TOP, 48, CTA_H, GREEN_DARK)
 add_rect(0, CTA_TOP, 48, 0.08, GOLD)
 
