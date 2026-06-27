@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2714" height="951" viewBox="0 0 2714 951">
+<rect x="0" y="0" width="2714" height="951" fill="#FFFFFF"/>
+<rect x="3" y="3" width="2708" height="945" rx="18" fill="#FFFFFF" stroke="#DCE3EA" stroke-width="3"/>
+<text x="42" y="78" font-family="Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#1A2A3A">Geographic Distribution (Top 12)</text>
+<rect x="289.5" y="149" width="1415.5" height="39" rx="4" fill="#0B3954"/>
+<text x="268" y="168" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">United States</text>
+<rect x="289.5" y="201" width="470.5" height="39" rx="4" fill="#F58E1F"/>
+<text x="268" y="220" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">South Africa</text>
+<rect x="289.5" y="252" width="463.5" height="40" rx="4" fill="#1568B0"/>
+<text x="268" y="272" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">Ecuador</text>
+<rect x="289.5" y="304" width="381.5" height="39" rx="4" fill="#2E9CB5"/>
+<text x="268" y="324" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">Peru</text>
+<rect x="289.5" y="356" width="262.5" height="39" rx="4" fill="#B8631A"/>
+<text x="268" y="376" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">Madagascar</text>
+<rect x="289.5" y="407" width="214.5" height="40" rx="4" fill="#2297F2"/>
+<text x="268" y="427" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">Bolivia</text>
+<rect x="289.5" y="459" width="195.5" height="39" rx="4" fill="#7FCBEC"/>
+<text x="268" y="478" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">Mexico</text>
+<rect x="289.5" y="511" width="193.5" height="39" rx="4" fill="#0E5A7A"/>
+<text x="268" y="530" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">Costa Rica</text>
+<rect x="289.5" y="562" width="187.5" height="40" rx="4" fill="#EBA63C"/>
+<text x="268" y="582" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">New Caledonia</text>
+<rect x="289.5" y="614" width="168.5" height="39" rx="4" fill="#3F7CB5"/>
+<text x="268" y="634" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">China</text>
+<rect x="289.5" y="666" width="168.5" height="39" rx="4" fill="#5FB4D9"/>
+<text x="268" y="686" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">Spain</text>
+<rect x="289.5" y="717" width="150.5" height="40" rx="4" fill="#1A7E8E"/>
+<text x="268" y="737" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1A2A3A" text-anchor="end" dominant-baseline="central">Tanzania</text>
+<line x1="289.5" y1="770" x2="2127.0" y2="770" stroke="#5A6878" stroke-width="2"/>
+<line x1="289.5" y1="770" x2="289.5" y2="780" stroke="#5A6878" stroke-width="2"/>
+<text x="289.5" y="814" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#5A6878" text-anchor="middle">0</text>
+<line x1="748.9" y1="770" x2="748.9" y2="780" stroke="#5A6878" stroke-width="2"/>
+<text x="748.9" y="814" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#5A6878" text-anchor="middle">1,500</text>
+<line x1="1208.2" y1="770" x2="1208.2" y2="780" stroke="#5A6878" stroke-width="2"/>
+<text x="1208.2" y="814" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#5A6878" text-anchor="middle">3,000</text>
+<line x1="1667.6" y1="770" x2="1667.6" y2="780" stroke="#5A6878" stroke-width="2"/>
+<text x="1667.6" y="814" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#5A6878" text-anchor="middle">4,500</text>
+<line x1="2127.0" y1="770" x2="2127.0" y2="780" stroke="#5A6878" stroke-width="2"/>
+<text x="2127.0" y="814" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#5A6878" text-anchor="middle">6,000</text>
+<text x="42" y="905" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1568B0">51 countries total</text>
+</svg>

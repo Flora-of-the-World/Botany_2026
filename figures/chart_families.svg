@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2714" height="939" viewBox="0 0 2714 939">
+<rect x="0" y="0" width="2714" height="939" fill="#FFFFFF"/>
+<rect x="3" y="3" width="2708" height="933" rx="18" fill="#FFFFFF" stroke="#DCE3EA" stroke-width="3"/>
+<text x="42" y="78" font-family="Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#1A2A3A">Taxonomy Distribution (Top 15)</text>
+<rect x="42" y="135" width="597" height="361" fill="#0B3954" stroke="#FFFFFF" stroke-width="4"/>
+<text x="340" y="316" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Fabaceae</text>
+<rect x="42" y="501" width="597" height="329" fill="#F58E1F" stroke="#FFFFFF" stroke-width="4"/>
+<text x="340" y="666" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="600" fill="#1A2A3A" text-anchor="middle" dominant-baseline="central">Asteraceae</text>
+<rect x="644" y="135" width="389" height="441" fill="#1568B0" stroke="#FFFFFF" stroke-width="4"/>
+<text x="838" y="356" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Rubiaceae</text>
+<rect x="644" y="581" width="389" height="249" fill="#2E9CB5" stroke="#FFFFFF" stroke-width="4"/>
+<text x="838" y="706" font-family="Helvetica, Arial, sans-serif" font-size="39" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Orchidaceae</text>
+<rect x="1038" y="135" width="393" height="245" fill="#B8631A" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1234" y="258" font-family="Helvetica, Arial, sans-serif" font-size="39" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Lamiaceae</text>
+<rect x="1038" y="385" width="393" height="227" fill="#2297F2" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1234" y="498" font-family="Helvetica, Arial, sans-serif" font-size="36" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Rosaceae</text>
+<rect x="1038" y="617" width="393" height="213" fill="#7FCBEC" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1234" y="724" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="600" fill="#1A2A3A" text-anchor="middle" dominant-baseline="central">Malvaceae</text>
+<rect x="1436" y="135" width="327" height="235" fill="#0E5A7A" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1600" y="252" font-family="Helvetica, Arial, sans-serif" font-size="37" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Apocynaceae</text>
+<rect x="1436" y="375" width="327" height="233" fill="#EBA63C" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1600" y="492" font-family="Helvetica, Arial, sans-serif" font-size="37" font-weight="600" fill="#1A2A3A" text-anchor="middle" dominant-baseline="central">Euphorbiaceae</text>
+<rect x="1436" y="613" width="327" height="217" fill="#3F7CB5" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1600" y="722" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Araceae</text>
+<rect x="1768" y="135" width="209" height="301" fill="#5FB4D9" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1872" y="286" font-family="Helvetica, Arial, sans-serif" font-size="33" font-weight="600" fill="#1A2A3A" text-anchor="middle" dominant-baseline="central">Ericaceae</text>
+<rect x="1982" y="135" width="203" height="301" fill="#1A7E8E" stroke="#FFFFFF" stroke-width="4"/>
+<text x="2084" y="286" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Sapindace…</text>
+<rect x="1768" y="441" width="279" height="195" fill="#F4C063" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1908" y="538" font-family="Helvetica, Arial, sans-serif" font-size="31" font-weight="600" fill="#1A2A3A" text-anchor="middle" dominant-baseline="central">Solanaceae</text>
+<rect x="1768" y="641" width="279" height="189" fill="#34526B" stroke="#FFFFFF" stroke-width="4"/>
+<text x="1908" y="736" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Piperaceae</text>
+<rect x="2052" y="441" width="133" height="389" fill="#9AD0EC" stroke="#FFFFFF" stroke-width="4"/>
+<text x="2118" y="636" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#1A2A3A" text-anchor="middle" dominant-baseline="central">Acanthace…</text>
+<text x="42" y="905" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#1568B0">482 families total</text>
+</svg>
